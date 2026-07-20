@@ -1,0 +1,6 @@
+streamlit>=1.38
+supabase>=2.7
+groq>=0.11
+pandas>=2.0
+plotly>=5.20
+tzdata
