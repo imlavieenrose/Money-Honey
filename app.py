@@ -1,5 +1,5 @@
 """
-Duitin — Expense Tracker berbasis chatbot.
+honeymoney — Expense Tracker berbasis chatbot.
 
 Cara jalan:
     streamlit run app.py
@@ -28,7 +28,7 @@ from database import (
 from llm import get_chatbot_response
 from utils import format_rupiah, month_name_id, now_local
 
-st.set_page_config(page_title="Duitin — Expense Tracker", page_icon="💸", layout="wide")
+st.set_page_config(page_title="HoneyMoney — Expense Tracker", page_icon="💸", layout="wide")
 
 
 def check_secrets() -> bool:
@@ -90,7 +90,7 @@ def render_chat_tab(user_id: str) -> None:
             {
                 "role": "assistant",
                 "content": (
-                    "Halo! 👋 Aku Duitin, asisten pencatat pengeluaranmu. "
+                    "Halo! 👋 Aku honeymoney, asisten pencatat pengeluaranmu. "
                     "Coba ceritakan pengeluaranmu, misalnya:\n\n"
                     "> *\"beli kopi 25rb tadi pagi\"*\n\n"
                     "atau minta laporan, misalnya:\n\n"
@@ -119,7 +119,7 @@ def render_chat_tab(user_id: str) -> None:
         ]
 
         with st.chat_message("assistant"):
-            with st.spinner("Duitin lagi mikir..."):
+            with st.spinner("honeymoney lagi mikir..."):
                 try:
                     reply_text, ui_payloads = get_chatbot_response(user_input, user_id, history_for_llm)
                 except Exception as e:
@@ -261,7 +261,7 @@ def main() -> None:
     user_id = st.session_state["user_id"]
     render_sidebar(user_id)
 
-    st.title("💸 Duitin")
+    st.title("💸 honeymoney")
     tab_chat, tab_report = st.tabs(["💬 Chat", "📊 Riwayat & Laporan"])
     with tab_chat:
         render_chat_tab(user_id)
